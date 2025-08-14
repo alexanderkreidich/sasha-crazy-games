@@ -1,0 +1,119 @@
+@import "tailwindcss";
+
+:root {
+  --background: #000000;
+  --foreground: #ffffff;
+  --primary: #00ff00;
+  --secondary: #ff0000;
+  --tertiary: #ffff00;
+  --accent: #00ffff;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-tertiary: var(--tertiary);
+  --color-accent: var(--accent);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #000000;
+    --foreground: #ffffff;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: 'Courier New', Courier, monospace;
+  overflow-x: hidden;
+}
+
+/* Retro CRT monitor effect */
+.crt-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.crt-effect::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(rgba(0, 255, 0, 0.05) 50%, rgba(0, 0, 0, 0.2) 50%);
+  background-size: 100% 4px;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.crt-effect::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0.7) 100%);
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* Pixel border effect */
+.pixel-border {
+  border: 2px solid var(--primary);
+  box-shadow: 0 0 5px var(--primary);
+}
+
+.pixel-border-yellow {
+  border: 2px solid var(--tertiary);
+  box-shadow: 0 0 5px var(--tertiary);
+}
+
+/* Retro text styling */
+.retro-text {
+  font-family: 'Courier New', Courier, monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  text-shadow: 0 0 5px var(--primary);
+}
+
+.retro-title {
+  font-family: 'Courier New', Courier, monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-weight: bold;
+  text-shadow: 0 0 10px var(--primary);
+}
+
+/* Blinking effect for retro feel */
+.blink {
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+/* Glowing effect */
+.glow {
+  box-shadow: 0 0 10px var(--primary);
+}
+
+.glow-yellow {
+  box-shadow: 0 0 10px var(--tertiary);
+}
+
+/* Pixel-perfect sizing */
+.pixel-perfect {
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+}
