@@ -5,7 +5,7 @@ import GameCard from './GameCard'
 
 interface MainMenuProps {
   onGameSelect: (
-    game: 'tic-tac-toe' | 'rock-paper-scissors' | 'dinosaur'
+    game: 'tic-tac-toe' | 'rock-paper-scissors' | 'dinosaur' | 'memory'
   ) => void
 }
 
@@ -22,7 +22,7 @@ export default function MainMenu({ onGameSelect }: MainMenuProps) {
       </motion.div>
 
       <motion.div
-        className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto"
+        className="grid grid-cols-1 md:grid-cols-4 gap-6 max-w-6xl mx-auto"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.5 }}
@@ -46,6 +46,13 @@ export default function MainMenu({ onGameSelect }: MainMenuProps) {
           description="Jump over obstacles in this endless runner!"
           emoji="🦖"
           onClick={() => onGameSelect('dinosaur')}
+        />
+
+        <GameCard
+          title="Memory Match"
+          description="Find matching pairs in this memory challenge!"
+          emoji="🧠"
+          onClick={() => onGameSelect('memory')}
         />
       </motion.div>
 

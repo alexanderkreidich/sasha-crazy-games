@@ -5,13 +5,14 @@ import MainMenu from "@/components/MainMenu";
 import TicTacToe from "@/components/TicTacToe";
 import RockPaperScissors from "@/components/RockPaperScissors";
 import DinosaurGame from "@/components/DinosaurGame";
+import MemoryGame from "@/components/MemoryGame";
 
-type CurrentView = "menu" | "tic-tac-toe" | "rock-paper-scissors" | "dinosaur";
+type CurrentView = "menu" | "tic-tac-toe" | "rock-paper-scissors" | "dinosaur" | "memory";
 
 export default function Home() {
   const [currentView, setCurrentView] = useState<CurrentView>("menu");
 
-  const handleGameSelect = (game: "tic-tac-toe" | "rock-paper-scissors" | "dinosaur") => {
+  const handleGameSelect = (game: "tic-tac-toe" | "rock-paper-scissors" | "dinosaur" | "memory") => {
     setCurrentView(game);
   };
 
@@ -48,6 +49,10 @@ export default function Home() {
       
       {currentView === "dinosaur" && (
         <DinosaurGame onBackToMenu={handleBackToMenu} />
+      )}
+
+      {currentView === "memory" && (
+        <MemoryGame onBackToMenu={handleBackToMenu} />
       )}
     </div>
   );
